@@ -14,9 +14,11 @@ const allowedOrigins = process.env.CLIENT_URL
 
 app.use(cors({
   origin: (origin, cb) => {
-    if (!origin || allowedOrigins.includes(origin)) cb(null, true);
+    if (!origin || allowedOrigins.some(o => origin.startsWith(o.trim()))) cb(null, true);
     else cb(new Error('Not allowed by CORS'));
   },
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
 }));
 app.use(express.json({ limit: '1mb' }));
 
