@@ -5,13 +5,9 @@
       "name": "tathastu-backend",
       "runtime": "node",
       "plan": "free",
-      "buildCommand": "npm install",
-      "startCommand": "npm start",
+      "buildCommand": "yarn",
+      "startCommand": "node index.js",
       "envVars": [
-        {
-          "key": "PORT",
-          "value": "5000"
-        },
         {
           "key": "GROQ_API_KEY",
           "sync": false
